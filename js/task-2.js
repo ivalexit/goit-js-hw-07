@@ -19,7 +19,7 @@ const images = [
   {
     url:
       'https://images.pexels.com/photos/37833/rainbow-lorikeet-parrots-australia-rainbow-37833.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    alt: 'Blue Geeen and Orange Parrot',
+    alt: 'Blue Green and Orange Parrot',
   },
   {
     url:
@@ -27,3 +27,21 @@ const images = [
     alt: 'Zebras on Zebra',
   },
 ];
+
+const gallery = document.querySelector(".gallery");
+
+const elements = images.map(({ url, alt }) => {
+  const listItem = document.createElement("li");
+  listItem.classList.add("gallery-list-item");
+
+  const img = document.createElement("img");
+  img.classList.add("gallery-image");
+  img.src = url;
+  img.alt = alt;
+  img.width = 500;
+
+  listItem.append(img);
+  return listItem;
+});
+
+gallery.append(...elements);
